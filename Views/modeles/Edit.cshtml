@@ -1,0 +1,44 @@
+﻿@model CarRental.Models.modele
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<div class="card shadow mb-6" style="margin:0px 40px">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">
+            Editer
+        </h6>
+    </div>
+    <!-- /.container-fluid -->
+    <div class="card-body " style="margin:0px 20px">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="mb-3">
+                @Html.TextBoxFor(model => model.nom_modele, new { placeholder = "Nom Modele", @class = "form-control form-control-user" })
+                @Html.ValidationMessageFor(model => model.nom_modele, "", new { @class = "text-danger" })
+            </div>
+            <div class="mb-3">
+                @Html.DropDownList("idmarque", null, htmlAttributes: new { @class = "form-control form-control-user " })
+                @Html.ValidationMessageFor(model => model.idmarque, "", new { @class = "text-danger" })
+            </div>
+            <div class="mb-3">
+                @Html.TextBoxFor(m => m.datesortie, new { placeholder = "YYYY-MM-DD", @class = "form-control form-control-user" })
+                @Html.ValidationMessageFor(model => model.datesortie, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save">&nbsp;Enregistrer</i></button>
+                <button type="reset" class="btn btn-danger"><i class="fas fa-undo">&nbsp;Annuler</i></button>
+            </div>
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+
+
+</div>

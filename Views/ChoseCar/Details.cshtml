@@ -1,0 +1,81 @@
+﻿@model CarRental.Models.voiture
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Voiture</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            Nom modèle
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.modele.nom_modele)
+        </dd>
+        <dt class="col-sm-3">
+            Photo
+        </dt>
+
+        <dd class="col-sm-9">
+            <img src="@Url.Content(Model.OnePhoto.ImagePath)" alt="xx" width="300" height="250" />
+        </dd>
+        <dt class="col-sm-3">
+            Prix Par jour
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.prixJour)
+        </dd>
+        <dt class="col-sm-3">
+            Date de sortie
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.modele.datesortie)
+        </dd>
+
+        <dt class="col-sm-3">
+            Nombre de portes
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.nbporte)
+        </dd>
+
+        <dt class="col-sm-3">
+            Nombre de place
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.nbplace)
+        </dd>
+
+        <dt class="col-sm-3">
+            Puissance
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.puissance)
+        </dd>
+
+
+        <dt class="col-sm-3">
+            Type Carburant
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.category.libelle_cat)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

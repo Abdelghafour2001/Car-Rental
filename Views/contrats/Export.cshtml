@@ -1,0 +1,162 @@
+﻿@model CarRental.Models.contrat
+@{
+    Layout = null;
+}
+@*<!Doctype html>
+    <html>
+    <head>
+        <title>Contrat</title>
+    </head>
+    <body>
+        <div id="Grid">
+            <h4>Contrat</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.date_debut)
+                </dt>
+
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.date_debut)
+                </dd>
+
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.date_fin)
+                </dt>
+
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.date_fin)
+                </dd>
+
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.montant_contrat)
+                </dt>
+
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.montant_contrat)
+                </dd>
+
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.client.nom_cl)
+                </dt>
+
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.client.nom_cl)
+                </dd>
+
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.voiture.immat)
+                </dt>
+
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.voiture.immat)
+                </dd>
+
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.reservation.objectif_reserv)
+                </dt>
+
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.reservation.objectif_reserv)
+                </dd>
+
+            </dl>
+        </div>
+        @using (Html.BeginForm("Export", "contrats", FormMethod.Post))
+        {
+            <input type="hidden" name="GridHtml" />
+            <input type="submit" id="btnSubmit" value="Export" />
+        }
+        <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+        <script>
+            $(function () {
+                $("#btnSubmit").click(function () {
+                    $("input[name='GridHtml']").val($("#Grid").html());
+                });
+            });
+        </script>
+    </body>
+    </html>*@
+<!Doctype html>
+<html>
+<head>
+    <title>Contrat de location</title>
+</head>
+<body>
+    <div id="Grid">
+        <div text-align="center">
+            <h1 text-align="center">Contrat de location de voiture</h1>
+        </div>
+        <table>
+            <tr>
+                <td>
+                    <h2>Infos du Vehicule :</h2>
+                    <table>
+                        <tr><td><strong>Immatriculation :</strong></td><td> @Html.DisplayFor(model => model.voiture.immat)</td></tr>
+                        <tr><td><strong>Nom modèle :</strong></td><td> @Html.DisplayFor(model => model.voiture.modele.nom_modele)</td></tr>
+                        <tr><td><strong>Carburant :</strong></td><td> @Html.DisplayFor(model => model.voiture.category.libelle_cat)</td></tr>
+                        <tr><td><strong>Prix par jour :</strong></td><td> @Html.DisplayFor(model => model.voiture.prixJour)</td></tr>
+                        <tr><td><strong> N° Carte grise :</strong></td><td> @Html.DisplayFor(model => model.voiture.carte_grise)</td></tr>
+                        <tr><td><strong>Nombre de places :</strong></td><td> @Html.DisplayFor(model => model.voiture.nbplace)</td></tr>
+                        <tr><td><strong>Nombre de portes :</strong></td><td> @Html.DisplayFor(model => model.voiture.nbporte)</td></tr>
+                    </table>
+
+                </td>
+                <td>
+                    <h2>Infos du Client :</h2>
+                    <table>
+                        <tr><td><strong>CIN :</strong></td><td> @Html.DisplayFor(model => model.client.CIN_cl)</td></tr>
+                        <tr><td><strong>Nom :</strong></td><td> @Html.DisplayFor(model => model.client.nom_cl)</td></tr>
+                        <tr><td><strong>Prénom :</strong></td><td> @Html.DisplayFor(model => model.client.prenom_cl)</td></tr>
+                        <tr><td><strong>Adresse :</strong></td><td> @Html.DisplayFor(model => model.client.adresse_cl)</td></tr>
+                        <tr><td><strong>E-mail :</strong></td><td> @Html.DisplayFor(model => model.client.email)</td></tr>
+                        <tr><td><strong>Tel :</strong></td><td> @Html.DisplayFor(model => model.client.tel_cl)</td></tr>
+                    </table>
+
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <h2>Infos de la Reservation :</h2>
+                    <table>
+                        <tr><td><strong>Objectif de reservation :</strong></td><td> @Html.DisplayFor(model => model.reservation.objectif_reserv)</td></tr>
+                        <tr><td><strong>Date début de la reservation :</strong></td><td> @Html.DisplayFor(model => model.reservation.date_debut)</td></tr>
+                        <tr><td><strong>Date Fin de la reservation :</strong></td><td> @Html.DisplayFor(model => model.reservation.date_fin)</td></tr>
+
+                    </table>
+
+                </td>
+                <td>
+                    <h2>Infos du Contrat :</h2>
+                    <table>
+                        <tr><td><strong>Date debut contrat :</strong></td><td> @Html.DisplayFor(model => model.date_debut)</td></tr>
+                        <tr><td><strong>Date fin contrat :</strong></td><td> @Html.DisplayFor(model => model.date_fin)</td></tr>
+                        <tr><td><strong>Montant total à payer :</strong></td><td> @Html.DisplayFor(model => model.montant_contrat)</td></tr>
+
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td><h2>Signature du client</h2></td>
+                <td><h2>Signature et Cachet de l'agence</h2></td>
+            </tr>
+            
+        </table>
+    </div>
+     @using (Html.BeginForm("Export", "contrats", FormMethod.Post))
+        {
+            <input type="hidden" name="GridHtml" />
+            <input type="submit" id="btnSubmit" value="Export" />
+        }
+        <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+        <script>
+            $(function () {
+                $("#btnSubmit").click(function () {
+                    $("input[name='GridHtml']").val($("#Grid").html());
+                });
+            });
+        </script>
+</body>
+</html>

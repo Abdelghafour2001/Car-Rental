@@ -1,0 +1,91 @@
+﻿@model IEnumerable<CarRental.Models.client>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<h2>Clients</h2>
+
+<span class="btn btn-light">
+    <i class="fas fa-plus"></i>
+    @Html.ActionLink("Create New", "Create", new { @style = "color:#fff;" })
+</span>
+<span class="d-none d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm">
+    <i class="fas fa-download"></i>
+    @Html.ActionLink("ExportToExcel", "ExportToExcel", new { @style = "text-decoration:none;color:white;" })
+</span>
+
+
+<div class="container-fluid">
+    <!-- DataTales Example -->
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">
+                Liste des Marques
+            </h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%"
+                       cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                CIN
+                            </th>
+                            <th>
+                                Nom
+                            </th>
+                            <th>
+                                Prénom
+                            </th>
+                            <th>Actions</th>
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>
+                                CIN
+                            </th>
+                            <th>
+                                Nom
+                            </th>
+                            <th>
+                                Prénom
+                            </th>
+                            <th>Actions</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CIN_cl)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nom_cl)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.prenom_cl)
+                                </td>
+                                <td>
+                                    <span class="btn btn-primary text-light"><i class="fas fa-edit"></i> @Html.ActionLink("Edit", "Edit", new { id = item.idclient }, new { @style = "color:#fff;" })</span>
+                                    <span class="btn btn-success"><i class="fas fa-list"></i>@Html.ActionLink("Details", "Details", new { id = item.idclient }, new { @style = "color:#fff;" }) </span>
+                                    <span class="btn btn-danger"><i class="fas fa-trash-alt"></i>@Html.ActionLink("Delete", "Delete", new { id = item.idclient }, new { @style = "color:#fff;" })</span>
+                                    <span class="btn btn-warning"><i class="fas fa-trash-alt"></i>@Html.ActionLink("Contrats", "ContratsByClient", new { id = item.idclient }, new { @style = "color:#fff;" })</span>
+                                    <span class="btn btn-secondary"><i class="fas fa-trash-alt"></i>@Html.ActionLink("Reservations", "ResevationsByClient", new { id = item.idclient }, new { @style = "color:#fff;" })</span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

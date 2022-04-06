@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="title"><h1>Cars</h1><h3>.ma</h3></div>
+<!--Description Paragraph-->
+<div id="dp">
+    <h2>Cars.ma</h2>
+    
+        <p>Garantissant des locations de véhicules dans 160 pays et 40 langues, Cars.ma est le plus grand service de réservation de locations de voitures dans le monde. En collaboration avec les plus grands fournisseurs, nous vous proposons des tarifs avantageux sur tous types de voitures, y compris les véhicules de luxe, monospaces, fourgonnettes et les voitures à boîte automatique. Avec un centre d'appels multilingue ouvert 7 jours sur 7, nous pouvons vous trouver les meilleurs tarifs de location quand vous voulez - où vous voulez.</p>
+</div>
+<!-- End of Description P-->
+
+<!--Mobile App-->
+<div id="m-app">
+    <h2>L'application Mobile</h2>
+    <p>Retrouvez notre application disponible gratuitement sur les plateformes IOS et Android</p><br>
+    <a class="btn btn-outline-light btn-lg" id="btnacheter" style="border-radius:50px;" href="#!" role="button"><img src="~/Content/img/apple.svg" alt="apple">Télécharger l'app sur <span>APP STORE</span></a>
+    <a class="btn btn-outline-light btn-lg" id="btnacheter1" style="border-radius:50px;" href="#!" role="button"><img src="~/Content/img/android.svg" alt="android">Télécharger l'app sur <span>Google Play</span></a>
+    <span><img src="~/Content/img/hand.png" alt="smartphone"></span>
+</div>
+<!--End Mobile App-->
+<!--Footer-->
+<div id="footer">
+    <div id="part1">
+        <span><img src="~/Content/img/logo1.png" alt="logo"></span><br>
+        <ul>
+            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        </ul>
+    </div>
+    <div id="part2">
+        <h3>Nous contacter</h3>
+        <p><strong>Settat</strong>, 77, Rue des FAR Settat <strong>26000</strong><br>Maroc</p>
+        <p><strong>Telephone :</strong>+212700989156</p>
+        @Html.ActionLink("Contact", "Contact", "Home")
+
+
+    </div>
+    <div id="part3">
+        <h3>Nos Horaires</h3>
+        <span><p><strong>Matin :</strong>9:00-12:30</span></p><br>
+        <span><p><strong>Après-midi :</strong>13:45-16:45</p></span>
+        <span><p><strong>7/24</strong></p></span>
+    </div>
+    <!-- Footer -->
+</div>

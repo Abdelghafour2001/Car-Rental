@@ -1,0 +1,118 @@
+﻿@model CarRental.Models.voiture
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Voiture</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.immat)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.immat)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.carte_grise)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.carte_grise)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.prixJour)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.prixJour)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.nbporte)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.nbporte)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.nbplace)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.nbplace)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.puissance)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.puissance)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.date_aquis)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.date_aquis)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.datedebut_assurance)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.datedebut_assurance)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.datefin_assurance)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.datefin_assurance)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.cout_assurance)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.cout_assurance)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.category.libelle_cat)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.category.libelle_cat)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.modele.nom_modele)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.modele.nom_modele)
+        </dd>
+        <dt class="col-sm-3">
+            Photo
+        </dt>
+
+        <dd class="col-sm-9">
+            <img src="@Url.Content(Model.OnePhoto.ImagePath)" alt="xx" width="250" height="250" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

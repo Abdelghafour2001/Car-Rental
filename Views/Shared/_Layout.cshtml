@@ -1,0 +1,473 @@
+﻿<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - Cars.ma</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+              rel="stylesheet">
+
+        <!-- Custom styles for this template-->
+        <link href="~/Content/css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="~/Content/css/main.css" rel="stylesheet">
+        <link href="~/Content/vendor/datatables/dataTables.bootstrap4.min.css"
+              rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    </head>
+    <body>
+
+
+        @if (!User.Identity.IsAuthenticated)
+        {
+
+            <nav class="navbar navbar-expand navbar-light bg-white topbar  static-top shadow" style="width:100%;">
+
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+                @Html.ActionLink("Cars.ma", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "navbar-brand" })
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+
+                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                    <li class="nav-item dropdown no-arrow d-sm-none">
+                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <!-- Dropdown - Messages -->
+                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                             aria-labelledby="searchDropdown">
+                            <form class="form-inline mr-auto w-100 navbar-search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-light border-0 small"
+                                           placeholder="Rechercher..." aria-label="Rechercher"
+                                           aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fas fa-search fa-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+
+                    <!-- Nav Item - Alerts -->
+
+
+                    <div class="topbar-divider d-none d-sm-block"></div>
+                    @Html.Partial("_LoginPartial")
+                    <!-- Nav Item - User Information -->
+                </ul>
+            </nav>
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+                <footer style="display:flex;align-content:center;justify-content:center;">
+                    <p>&copy; @DateTime.Now.Year - Cars.ma</p>
+                </footer>
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
+            </div>
+        }
+        else
+        {
+            if (ViewBag.Message == "ADMIN")
+            {
+                <!-- Page Wrapper -->
+                <div id="wrapper">
+
+                    <!-- Sidebar -->
+                    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+                        id="accordionSidebar">
+
+                        <!-- Sidebar - Brand -->
+                        <a class="sidebar-brand d-flex align-items-center justify-content-center"
+                           href="#">
+                            <div class="sidebar-brand-icon rotate-n-15">
+                                <i class="fas fa-car-side"></i>
+                            </div>
+                            <div class="sidebar-brand-text mx-3">
+                                Cars.ma
+                            </div>
+                        </a>
+
+                        <!-- Divider -->
+                        <hr class="sidebar-divider my-0">                                                    <!-- Nav Item - Dashboard -->
+                        <li class="nav-item">
+                            @Html.ActionLink("Cars.ma", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link" })
+                        </li>
+
+                        <!-- Divider -->
+                        <hr class="sidebar-divider">
+
+
+                        <!-- Heading -->
+                        <div class="sidebar-heading">Informations</div>
+                        <!-- Nav Item - Pages Collapse Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#"
+                               data-toggle="collapse" data-target="#collapseUtilities4"
+                               aria-expanded="true" aria-controls="collapseUtilities4">
+                                <i class="fas fa-fw fa-tasks"></i> <span>Reservations</span>
+                            </a>
+                            <div id="collapseUtilities4" class="collapse"
+                                 aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    @Html.ActionLink("Reservations", "Index", "reservations", routeValues: null, htmlAttributes: new { @class = "collapse-item" })
+                                    @Html.ActionLink("Reservations en attente", "Index", "Valider", routeValues: null, htmlAttributes: new { @class = "collapse-item" })
+
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#"
+                               data-toggle="collapse" data-target="#collapseUtilities1"
+                               aria-expanded="true" aria-controls="collapseUtilities1">
+                                <i class="fas fa-fw fa-users"></i> <span>Clients</span>
+                            </a>
+                            <div id="collapseUtilities1" class="collapse"
+                                 aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    @Html.ActionLink("Clients", "Index", "clients", routeValues: null, htmlAttributes: new { @class = "collapse-item" })
+                                    @Html.ActionLink("Contrats", "Index", "contrats", routeValues: null, htmlAttributes: new { @class = "collapse-item" })
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href=""
+                               data-toggle="collapse" data-target="#collapseUtilities"
+                               aria-expanded="true" aria-controls="collapseUtilities">
+                                <i class="fas fa-fw fa-car"></i> <span>Voitures</span>
+                            </a>
+                            <div id="collapseUtilities" class="collapse"
+                                 aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    @Html.ActionLink("Voitures", "Index", "voitures", routeValues: null, htmlAttributes: new { @class = "collapse-item" })
+                                    @Html.ActionLink("Marques", "Index", "marques", routeValues: null, htmlAttributes: new { @class = "collapse-item" })
+                                    @Html.ActionLink("Modele", "Index", "modeles", routeValues: null, htmlAttributes: new { @class = "collapse-item" })
+                                </div>
+                            </div>
+                        </li>
+
+
+
+                        <!-- Divider -->
+                        <hr class="sidebar-divider">
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#"
+                               data-toggle="collapse" data-target="#collapseUtilities5"
+                               aria-expanded="true" aria-controls="collapseUtilities5">
+                                <i class="fas fa-fw fa-table"></i> <span>Categories</span>
+                            </a>
+                            <div id="collapseUtilities5" class="collapse"
+                                 aria-labelledby="headingUtilities5" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    @Html.ActionLink("Categories", "Index", "categories", routeValues: null, htmlAttributes: new { @class = "collapse-item" })
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Nav Item - Tables -->
+                        <hr class="sidebar-divider">
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#"
+                               data-toggle="collapse" data-target="#collapseUtilities6"
+                               aria-expanded="true" aria-controls="collapseUtilities6">
+                                <i class="fas fa-fw fa-gear"></i> <span>Gestion Compte</span>
+                            </a>
+                            <div id="collapseUtilities6" class="collapse"
+                                 aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    @Html.ActionLink("Gestion compte", "Index", "manage", routeValues: null, htmlAttributes: new { @class = "collapse-item" })
+                                </div>
+                            </div>
+                        </li>
+                        
+
+                        <!-- Divider -->
+                        <hr class="sidebar-divider d-none d-md-block">
+
+                        <!-- Nav Item - Utilities Collapse Menu -->
+                        <!-- Divider -->
+                        <!-- Sidebar Toggler (Sidebar) -->
+                        <div class="text-center d-none d-md-inline">
+                            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                        </div>
+
+                    </ul>
+                    <!-- End of Sidebar -->
+                    <!-- Content Wrapper -->
+                    <div id="content-wrapper" class="d-flex flex-column">
+
+                        <!-- Main Content -->
+                        <div id="content">
+
+                            <!-- Topbar -->
+                            <nav class="navbar navbar-expand navbar-light bg-white topbar  static-top shadow" style="width:100%;">
+
+                                <!-- Sidebar Toggle (Topbar) -->
+                                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                                @Html.ActionLink("Cars.ma", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "navbar-brand" })
+                                <!-- Topbar Navbar -->
+                                <ul class="navbar-nav ml-auto">
+
+                                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                                    <li class="nav-item dropdown no-arrow d-sm-none">
+                                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-search fa-fw"></i>
+                                        </a>
+                                        <!-- Dropdown - Messages -->
+                                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                             aria-labelledby="searchDropdown">
+                                            <form class="form-inline mr-auto w-100 navbar-search">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control bg-light border-0 small"
+                                                           placeholder="Rechercher..." aria-label="Rechercher"
+                                                           aria-describedby="basic-addon2">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-primary" type="button">
+                                                            <i class="fas fa-search fa-sm"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </li>
+
+                                    <!-- Nav Item - Alerts -->
+
+
+                                    <div class="topbar-divider d-none d-sm-block"></div>
+                                    @Html.Partial("_LoginPartial")
+                                    <!-- Nav Item - User Information -->
+                                </ul>
+                            </nav>
+                            <!-- End of Topbar -->
+                            <!-- Begin Page Content -->
+                            <div class="container body-content">
+                                @RenderBody()
+                                <hr />
+                                <footer style="display:flex;align-content:center;justify-content:center;">
+                                    <p>&copy; @DateTime.Now.Year - Cars.ma</p>
+                                </footer>
+                                <a class="scroll-to-top rounded" href="#page-top">
+                                    <i class="fas fa-angle-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End of Main Content -->
+
+
+                    </div>
+                    <!-- End of Content Wrapper -->
+
+                </div>
+
+                <!-- End of Page Wrapper -->
+
+                <!-- Scroll to Top Button-->
+
+            }
+            else
+            {
+                <!-- Page Wrapper -->
+                <div id="wrapper">
+
+                    <!-- Sidebar -->
+                    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+                        id="accordionSidebar">
+
+                        <!-- Sidebar - Brand -->
+                        <a class="sidebar-brand d-flex align-items-center justify-content-center"
+                           href="#">
+                            <div class="sidebar-brand-icon rotate-n-15">
+                                <i class="fas fa-shopping-basket"></i>
+                            </div>
+                            <div class="sidebar-brand-text mx-3">
+                                Cars.ma
+                            </div>
+                        </a>
+
+                        <!-- Divider -->
+                        <hr class="sidebar-divider my-0">                                                    <!-- Nav Item - Dashboard -->
+                        <li class="nav-item">
+                            @Html.ActionLink("Cars.ma", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Contact", "Contact", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link" })
+                        </li>
+                        <!-- Divider -->
+                        <hr class="sidebar-divider">
+
+                        <div class="sidebar-heading">Informations</div>
+                        <!-- Nav Item - Pages Collapse Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#"
+                               data-toggle="collapse" data-target="#collapseUtilities9"
+                               aria-expanded="true" aria-controls="collapseUtilities9">
+                                <i class="fas fa-fw fa-car"></i> <span>Voitures</span>
+                            </a>
+                            <div id="collapseUtilities9" class="collapse"
+                                 aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    @Html.ActionLink("Voir les voitures disponibles", "Index", "ChoseCar", routeValues: null, htmlAttributes: new { @class = "collapse-item" })
+                                </div>
+                            </div>
+                        </li>
+                        <hr class="sidebar-divider">
+
+                        <!-- Nav Item - Pages Collapse Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#"
+                               data-toggle="collapse" data-target="#collapseUtilities8"
+                               aria-expanded="true" aria-controls="collapseUtilities8">
+                                <i class="fas fa-fw fa-calendar"></i> <span>Reservations</span>
+                            </a>
+                            <div id="collapseUtilities8" class="collapse"
+                                 aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    @Html.ActionLink("Reservation", "Index", "ReserverCl", routeValues: null, htmlAttributes: new { @class = "collapse-item" })
+                                </div>
+                            </div>
+                        </li>
+                        <hr class="sidebar-divider">
+
+                        <!-- Nav Item - Pages Collapse Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="#"
+                               data-toggle="collapse" data-target="#collapseUtilities7"
+                               aria-expanded="true" aria-controls="collapseUtilities7">
+                                <i class="fas fa-fw fa-cogs"></i> <span>Gestion</span>
+                            </a>
+                            <div id="collapseUtilities7" class="collapse"
+                                 aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    @Html.ActionLink("Gestion compte", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "collapse-item" })
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Divider -->
+                        <hr class="sidebar-divider d-none d-md-block">
+
+                        <!-- Nav Item - Utilities Collapse Menu -->
+                        <!-- Divider -->
+                        <!-- Sidebar Toggler (Sidebar) -->
+                        <div class="text-center d-none d-md-inline">
+                            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                        </div>
+
+                    </ul>
+                    <!-- End of Sidebar -->
+                    <!-- Content Wrapper -->
+                    <div id="content-wrapper" class="d-flex flex-column">
+
+                        <!-- Main Content -->
+                        <div id="content">
+
+                            <!-- Topbar -->
+                            <nav class="navbar navbar-expand navbar-light bg-white topbar  static-top shadow" style="width:100%;">
+
+                                <!-- Sidebar Toggle (Topbar) -->
+                                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                                @Html.ActionLink("Cars.ma", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "navbar-brand" })
+                                <!-- Topbar Navbar -->
+                                <ul class="navbar-nav ml-auto">
+
+                                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                                    <li class="nav-item dropdown no-arrow d-sm-none">
+                                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-search fa-fw"></i>
+                                        </a>
+                                        <!-- Dropdown - Messages -->
+                                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                             aria-labelledby="searchDropdown">
+                                            <form class="form-inline mr-auto w-100 navbar-search">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control bg-light border-0 small"
+                                                           placeholder="Rechercher..." aria-label="Rechercher"
+                                                           aria-describedby="basic-addon2">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-primary" type="button">
+                                                            <i class="fas fa-search fa-sm"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </li>
+
+                                    <!-- Nav Item - Alerts -->
+
+
+                                    <div class="topbar-divider d-none d-sm-block"></div>
+                                    @Html.Partial("_LoginPartial")
+                                    <!-- Nav Item - User Information -->
+                                </ul>
+                            </nav>
+                            <!-- End of Topbar -->
+                            <!-- Begin Page Content -->
+                            <div class="container body-content">
+                                @RenderBody()
+                                <hr />
+                                <footer style="display:flex;align-content:center;justify-content:center;">
+                                    <p>&copy; @DateTime.Now.Year - Cars.ma</p>
+                                </footer>
+                                <a class="scroll-to-top rounded" href="#page-top">
+                                    <i class="fas fa-angle-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End of Main Content -->
+
+
+                    </div>
+                    <!-- End of Content Wrapper -->
+
+                </div>
+
+                <!-- End of Page Wrapper -->
+
+                <!-- Scroll to Top Button-->
+            }
+
+
+
+
+        }
+
+
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+        <!-- Bootstrap core JavaScript-->
+        <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+        <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="~/Content/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="~/Content/js/sb-admin-2.min.js"></script>
+        <script src="~/Content/js/script-main.js"></script>
+        <script src="~/Content/vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="~/Content/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <script src="~/Content/js/demo/datatables-demo.js"></script>
+    </body>
+        </html>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CarRental.Models.contratByReservation_Result>
+
+@{
+    ViewBag.Title = "ContratByReservation";
+}
+
+<h2>Contrat par Reservation</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.date_debut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_fin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.montant_contrat)
+        </th>
+ 
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_debut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_fin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.montant_contrat)
+        </td>
+        <td>
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Precedent", "Index")
+</p>

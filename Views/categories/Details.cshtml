@@ -1,0 +1,25 @@
+﻿@model CarRental.Models.category
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Categorie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.libelle_cat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.libelle_cat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<CarRental.Models.modele>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Modèles</h2>
+
+<span class="btn btn-light">
+        <i class="fas fa-plus"></i>
+        @Html.ActionLink("Create New", "Create", new { @style = "color:#fff;" })
+    </span>
+
+
+
+    <div class="container-fluid">
+        <!-- DataTales Example -->
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    Liste des Modèles
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%"
+                           cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Nom du modele
+                                </th>
+                                <th>
+                                    Date Sortie
+                                </th>
+                                <th>
+                                    Nom de la marque
+                                </th>
+                                <th>Actions</th>
+
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>
+                                    Nom du modele
+                                </th>
+                                <th>
+                                    Date Sortie
+                                </th>
+                                <th>
+                                    Nom de la marque
+                                </th>
+                                <th>Actions</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.nom_modele)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.datesortie)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.marque.nom_marque)
+                                    </td>
+                                    <td>
+                                     
+                                            <span class="btn btn-primary text-light"><i class="fas fa-edit"></i> @Html.ActionLink("Edit", "Edit", new { id = item.idmodele }, new { @style = "color:#fff;" })</span>
+                                            <span class="btn btn-success"><i class="fas fa-list"></i>@Html.ActionLink("Details", "Details", new { id = item.idmodele }, new { @style = "color:#fff;" }) </span>
+                                            <span class="btn btn-danger"><i class="fas fa-trash-alt"></i>@Html.ActionLink("Delete", "Delete", new { id = item.idmodele }, new { @style = "color:#fff;" })</span>
+                                        
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>

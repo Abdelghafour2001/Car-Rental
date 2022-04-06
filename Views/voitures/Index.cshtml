@@ -1,0 +1,99 @@
+﻿@model IEnumerable<CarRental.Models.voiture>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Voitures</h2>
+
+    <span class="btn btn-outline-primary">
+        <i class="fas fa-plus"></i>
+        @Html.ActionLink("Ajouter", "Create", new { @style = "color:#fff;" })
+    </span>
+
+
+
+    <div class="container-fluid">
+        <!-- DataTales Example -->
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    Liste des Marques
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%"
+                           cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Matricule
+                                </th>
+                                <th>
+                                    Modele
+                                </th>
+                                <th>
+                                    Categorie
+                                </th>
+                                <th>
+                                    Prix par jour
+                                </th>
+
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>
+                                    Matricule
+                                </th>
+                                <th>
+                                    Modele
+                                </th>
+                                <th>
+                                    Categorie
+                                </th>
+                                <th>
+                                    Prix par jour
+                                </th>
+
+                                <th>Actions</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.immat)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.modele.nom_modele)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.category.libelle_cat)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.prixJour)
+                                </td>
+
+                                <td>
+
+                                    <span class="btn btn-primary text-light"><i class="fas fa-edit"></i> @Html.ActionLink("Edit", "Edit", new { id = item.idcar }, new { @style = "color:#fff;" })</span>
+                                    <span class="btn btn-success"><i class="fas fa-list"></i>@Html.ActionLink("Details", "Details", new { id = item.idcar }, new { @style = "color:#fff;" }) </span>
+                                    <span class="btn btn-danger"><i class="fas fa-trash-alt"></i>@Html.ActionLink("Delete", "Delete", new { id = item.idcar }, new { @style = "color:#fff;" })</span>
+                                    <span class="btn btn-warning"><i class="fas fa-calendar"></i>@Html.ActionLink("Reservations", "ReservationsByCar", new { id = item.idcar }, new { @style = "color:#fff;" })</span>
+
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>

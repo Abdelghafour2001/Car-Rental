@@ -1,0 +1,34 @@
+﻿@model IEnumerable<CarRental.Models.ModeleByMarques_Result>
+@{
+    ViewBag.Title = "Modeles Par Marque";
+}
+
+<h2>Modele par marque</h2>
+
+<p>
+    @Html.ActionLink("Revenir", "Index")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_modele)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datesortie)
+        </th>
+        
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom_modele)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datesortie)
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CarRental.Models.voiture>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container-fluid">
+    <!-- DataTales Example -->
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">
+                Liste des Voitures disponibles
+            </h6>
+        </div>
+        <div class="card-body">
+
+
+
+            @foreach (var item in Model)
+            {<div class="col-10 mx-auto my-3 col-md-6 col-lg-4"style="display:inline-block;">
+    <div class="card car-card" >
+        <img src="@Url.Content(item.OnePhoto.ImagePath)"
+             class="card-img-top car-img"
+             alt=""
+             height="200" />
+        <div class="card-body">
+            <div class="car-info d-flex justify-content-between">
+                <!-- first flex child -->
+                <div class="car-text text-uppercase">
+                    <h6 class="font-weight-bold"></h6>
+                    <h6>@Html.DisplayFor(modelItem => item.modele.nom_modele)</h6>
+                </div>
+                <!-- second flex child -->
+                <h5 class="car-value align-self-center py-2 px-3">
+                    <span class="car-price">@Html.DisplayFor(modelItem => item.prixJour) DH</span>
+                </h5>
+            </div>
+        </div>
+        <div class="card-footer text-capitalize d-flex justify-content-between">
+
+            <p>
+                <span><i class="fas fa-calendar-alt">&nbsp;Date Modèle</i></span>@Html.DisplayFor(modelItem => item.modele.datesortie)
+            </p>
+            <p>
+                <span><i class="fas fa-gas-pump">&nbsp;Carburant</i></span>@Html.DisplayFor(modelItem => item.category.libelle_cat)
+            </p>
+        </div>
+        <span class="btn btn btn-primary text-white"><i class="fas fa-list"></i>@Html.ActionLink("Details", "Details", new { id = item.idcar }, new { @style = "color:#fff;" }) </span>
+    </div>
+</div>
+                    }
+               
+
+            </div>
+            </div>
+            </div>

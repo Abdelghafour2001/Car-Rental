@@ -1,0 +1,125 @@
+﻿@model CarRental.Models.voiture
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Ajouter</h2>
+
+@using (Html.BeginForm("Create","voitures",FormMethod.Post, new {enctype="multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Voiture</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.idcat, "idcat", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("idcat", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.idcat, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.idmodele, "idmodele", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("idmodele", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.idmodele, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.prixJour, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.prixJour, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.prixJour, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.immat, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.immat, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.immat, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.carte_grise, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.carte_grise, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.carte_grise, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.nbporte, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.nbporte, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.nbporte, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.nbplace, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.nbplace, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.nbplace, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.puissance, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.puissance, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.puissance, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.date_aquis, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.date_aquis, new { htmlAttributes = new { @class = "form-control", placeholder = "YYYY-MM-DD" } })
+            @Html.ValidationMessageFor(model => model.date_aquis, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.datedebut_assurance, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.datedebut_assurance, new { htmlAttributes = new { @class = "form-control", placeholder = "YYYY-MM-DD" } })
+            @Html.ValidationMessageFor(model => model.datedebut_assurance, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.datefin_assurance, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.datefin_assurance, new { htmlAttributes = new { @class = "form-control", placeholder = "YYYY-MM-DD" } })
+            @Html.ValidationMessageFor(model => model.datefin_assurance, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cout_assurance, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cout_assurance, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.cout_assurance, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="file" name="ImageFile" />        
+        </div>
+    </div>
+    <div class="panel-footer">
+        <button type="submit" class="btn btn-primary"><i class="fas fa-save">&nbsp;Enregistrer</i></button>
+        <button type="reset" class="btn btn-danger"><i class="fas fa-undo">&nbsp;Annuler</i></button>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Revenir à la liste", "Index")
+</div>

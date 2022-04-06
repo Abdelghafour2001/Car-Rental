@@ -1,0 +1,40 @@
+﻿@model CarRental.Models.marque
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Marque</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.nom_marque)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.nom_marque)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.pays)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.pays)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.logo)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.logo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<CarRental.Models.reservation>
+
+@{
+    ViewBag.Title = "ViewRes";
+}
+
+<h2>Vos Reservations</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateRes")
+</p>
+<table class="table">
+    <tr>
+        <th>
+Objectif        </th>
+        <th>
+Kilometrage        </th>
+        <th>
+Date debut        </th>
+        <th>
+Date fin        </th>
+        <th>
+Etat        </th>
+        <th>
+Nom Client        </th>
+        <th>
+Modele voiture        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.objectif_reserv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kilometrage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_debut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_fin)
+        </td>
+        <td>
+            @if (item.valide == true)
+            {<p>Validé</p>;
+            }
+            else
+            {<p>En attente</p>;
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.client.nom_cl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.voiture.immat)
+        </td>
+        <td>
+
+            <span class="btn btn-primary text-light"><i class="fas fa-edit"></i> @Html.ActionLink("Edit", "EditRes", new { id = item.idreserv }, new { @style = "color:#fff;" })</span>
+            <span class="btn btn-danger"><i class="fas fa-trash-alt"></i>@Html.ActionLink("Supprimer", "DeleteRes", new { id = item.idreserv }, new { @style = "color:#fff;" })</span>
+
+        </td>
+    </tr>
+}
+
+</table>

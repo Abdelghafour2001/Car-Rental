@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Reservations";
+}
+
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Reserver maintenant!!</h1>
+    </div>
+    <div class="row">
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Verifier vos informations personnelles
+                            </div>
+                            @if (ViewBag.hasacc == 0)
+                            {<div class="h5 mb-0 font-weight-bold text-gray-800">@Html.ActionLink("Modifier", "Create", new { @style = "color:#fff;" })</div>}
+                        else
+                        { <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                @Html.ActionLink("Modifier", "Edit")
+                            </div>}
+
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-cogs fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example-->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Reserver votre voiture
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@Html.ActionLink("Reserver", "CreateRes")</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                Reserver votre voiture
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@Html.ActionLink("Voir vos reservations", "ViewRes")</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-car fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading">A noter!</h4>
+        <p>Veuillez vérfier vos informations personnelles, et les informations envoyés. Votre demande sera traitée par un agent qui vérifiera la disponibilité des services visés, et en cas de validation, vous enverra une copie du contrat dans un délai de 24h dans votre boite email. Merci pour votre patience!</p>
+        <hr>
+        <p class="mb-0">Si vous avez des reclamation n'hésitez pas à nous contacter sur @Html.ActionLink("Cars.ma", "Contact","Home")</p>
+    </div>
+</div>

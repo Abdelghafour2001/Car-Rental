@@ -1,0 +1,65 @@
+﻿@model CarRental.Models.reservation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>reservation</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.objectif_reserv)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.objectif_reserv)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.kilometrage)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.kilometrage)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.date_debut)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.date_debut)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.date_fin)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.date_fin)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.client.nom_cl)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.client.nom_cl)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.voiture.immat)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.voiture.immat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

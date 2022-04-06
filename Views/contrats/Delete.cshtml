@@ -1,0 +1,23 @@
+﻿@model CarRental.Models.contrat
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Suppression</h2>
+
+<h3>Voulez vous vraiment supprimer cet élément?</h3>
+<div>
+    <h4>Contrat</h4>
+    <hr />
+    
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

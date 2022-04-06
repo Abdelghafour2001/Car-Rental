@@ -1,0 +1,63 @@
+﻿@model CarRental.Models.client
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>client</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.nom_cl)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.nom_cl)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.prenom_cl)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.prenom_cl)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.tel_cl)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.tel_cl)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.adresse_cl)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.adresse_cl)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.CIN_cl)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CIN_cl)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

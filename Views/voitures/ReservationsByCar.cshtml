@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CarRental.Models.ReservationByCar_Result>
+
+@{
+    ViewBag.Title = "ReservationsByCar";
+}
+
+<h2>Reservations Par Voiture</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.objectif_reserv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kilometrage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_debut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_fin)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.objectif_reserv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kilometrage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_debut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_fin)
+        </td>
+
+    </tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("Revenir à la liste", "Index")
+</div>
