@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f4bbcf4e8be64a8f8eeab3f5eda01419" Name="Diagram1">
+        <EntityTypeShape EntityType="carrentalModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="carrentalModel.AspNetRole" Width="1.5" PointX="7.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="carrentalModel.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="carrentalModel.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="carrentalModel.AspNetUser" Width="1.5" PointX="10" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="carrentalModel.category" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="carrentalModel.client" Width="1.5" PointX="6" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="carrentalModel.contrat" Width="1.5" PointX="8.125" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="carrentalModel.marque" Width="1.5" PointX="0.5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="carrentalModel.modele" Width="1.5" PointX="2.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="carrentalModel.Photo" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="carrentalModel.reservation" Width="1.5" PointX="6.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="carrentalModel.sysdiagram" Width="1.5" PointX="9.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="carrentalModel.voiture" Width="1.5" PointX="4.25" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="carrentalModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="carrentalModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="carrentalModel.FK__voiture__idcat__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="carrentalModel.FK__contrat__idclien__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="carrentalModel.FK__reservati__idcli__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="carrentalModel.FK__modele__idmarque__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="carrentalModel.FK__voiture__idmodel__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="carrentalModel.FK__reservati__idcar__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="carrentalModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="carrentalModel.FK__contrat__idCar__14270015" />
+        <AssociationConnector Association="carrentalModel.FK__contrat__idreser__160F4887" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
