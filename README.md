@@ -19,3 +19,9 @@ A full stack web application built with .Net and MS SQL server dedicated for car
 - Chose Cars and view details <br/>
 - Create reservations <br/>
 - Manage Contracts <br/>
+
+## App Screenshots :
+
+#### Admin View :
+- Login : <br/>
+<img src="./login.png" alt="index1" height="300px"/>
