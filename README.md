@@ -23,5 +23,14 @@ A full stack web application built with .Net and MS SQL server dedicated for car
 ## App Screenshots :
 
 #### Admin View :
+
 - Login : <br/>
-<img src="./login.png" alt="index1" height="300px"/>
+<img src="./login.png" alt="index1" height="300px"/><br/>
+- Manage cars (CRUD)  : <br/>
+<img src="./carsmng.png" alt="index1" height="300px"/><br/>
+- Add cars : <br/>
+<img src="./addcars.png" alt="index1" height="300px"/><br/>
+- Check car details : <br/>
+<img src="./cardetailsadmin.png" alt="index1" height="300px"/><br/>
+- Login : <br/>
+<img src="./login.png" alt="index1" height="300px"/><br/>
