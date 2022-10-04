@@ -1,4 +1,4 @@
 # Car-Rental
 ----------
-<img src="./Home.jpeg" alt="index1"/>
+<img src="./home.png" alt="index1"/>
 ----------
