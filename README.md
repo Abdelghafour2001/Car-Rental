@@ -6,14 +6,14 @@ A full stack web application built with .Net and MS SQL server dedicated for car
 ----------
 ## App Features :
 #### Admin :
-- Login
-- Manage Cars models and brands
-- Manage Contracts and Reservations
-- Print informations on pdf on csv files
-- Manage Clients
+- Login <br/>
+- Manage Cars models and brands <br/>
+- Manage Contracts and Reservations <br/>
+- Print informations on pdf on csv files <br/>
+- Manage Clients <br/>
 #### Client :
-- Create account
-- Login
-- Chose Cars and view details
-- Create reservations
-- Manage Contracts
+- Create account <br/>
+- Login <br/>
+- Chose Cars and view details <br/>
+- Create reservations <br/>
+- Manage Contracts <br/>
