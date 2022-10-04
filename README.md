@@ -1,5 +1,5 @@
 # Car-Rental
-A full stack web application built with .Net and MS SQL server dedicated for car rental companies:
+A full stack web application built with .Net MVC and MS SQL server dedicated for car rental companies:
 ----------
 <img src="./home.png" alt="index1"/>
 ----------
@@ -32,5 +32,14 @@ A full stack web application built with .Net and MS SQL server dedicated for car
 <img src="./addcars.png" alt="index1" height="300px"/><br/>
 - Check car details : <br/>
 <img src="./cardetailsadmin.png" alt="index1" height="300px"/><br/>
-- Login : <br/>
-<img src="./login.png" alt="index1" height="300px"/><br/>
+- Manage users/Clients : <br/>
+<img src="./clientsmng.png" alt="index1" height="300px"/><br/>
+- Manage contracts : <br/>
+<img src="./contactsmngmadmin.png" alt="index1" height="300px"/><br/>
+- Manage models and brands : <br/>
+<img src="./marquesmng.png" alt="index1" height="300px"/><br/>
+<img src="./models mng.png" alt="index1" height="300px"/><br/>
+- Manage reservations (grant/suspend/revoke) : <br/>
+<img src="./mng reservations.png" alt="index1" height="300px"/><br/>
+- Reservation details: <br/>
+<img src="./reservationdetailsadmin.png" alt="index1" height="300px"/><br/>
