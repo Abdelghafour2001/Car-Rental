@@ -46,16 +46,16 @@ A full stack web application built with .Net MVC and MS SQL server dedicated for
 
 #### Client View :
 
-- Register :
-<img src="./register.png" alt="index1" height="300px"/><br/>
-- View available cars with details :
-<img src="./clientcars.png" alt="index1" height="300px"/><br/>
-- Manage reservations :
-<img src="./reserveclient.png" alt="index1" height="300px"/><br/>
-<img src="./resclient.png" alt="index1" height="300px"/><br/>
-<img src="./createresclient.png" alt="index1" height="300px"/><br/>
-- Manage personal infos/account :
-<img src="./client infos.png" alt="index1" height="300px"/><br/>
-<img src="./account management.png" alt="index1" height="300px"/><br/>
-- Contact Page :
+- Register : <br/>
+<img src="./register.png" alt="index1" height="300px"/> <br/>
+- View available cars with details : <br/>
+<img src="./clientcars.png" alt="index1" height="300px"/> <br/>
+- Manage reservations : <br/>
+<img src="./reserveclient.png" alt="index1" height="300px"/> <br/>
+<img src="./resclient.png" alt="index1" height="300px"/> <br/>
+<img src="./createresclient.png" alt="index1" height="300px"/> <br/>
+- Manage personal infos/account : <br/>
+<img src="./client infos.png" alt="index1" height="300px"/> <br/>
+<img src="./account management.png" alt="index1" height="300px"/> <br/>
+- Contact Page : <br/>
 <img src="./Contact.png" alt="index1" height="300px"/><br/>
